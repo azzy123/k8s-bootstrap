@@ -8,8 +8,9 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  source:
-    
+  source: 
+    repoURL: https://github.com/azzy123/k8s-bootstrap.git
+    targetRevision: HEAD
     path: aws-efs-csi-driver
     helm:
       parameters:
