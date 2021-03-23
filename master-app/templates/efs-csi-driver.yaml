@@ -15,13 +15,13 @@ spec:
     helm:
       parameters:
         - name: cluster.name
-          value: {{ .Values.cluster.name }}
+          value: "test-staging"
         - name: cluster.region
-          value: {{ .Values.cluster.awsRegion }}
+          value: "us-east-2"
 
   destination:
     namespace: kube-system
-    server: {{ .Values.spec.destination.server }}
+    server: https://kubernetes.default.svc
 
   syncPolicy:
     automated:
