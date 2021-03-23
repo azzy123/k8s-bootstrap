@@ -19,7 +19,7 @@ spec:
           value: {{ .Values.cluster.awsRegion }}
 
   destination:
-    namespace: argocd
+    namespace: kube-system
     server: {{ .Values.spec.destination.server }}
 
   syncPolicy:
