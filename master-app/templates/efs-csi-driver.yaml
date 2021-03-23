@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-cuda
+  namespace: argocd
+
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    
+    path: applications/aws-efs-csi-driver
+    helm:
+      parameters:
+        - name: cluster.name
+          value: {{ .Values.cluster.name }}
+        - name: cluster.region
+          value: {{ .Values.cluster.awsRegion }}
+
+  destination:
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true

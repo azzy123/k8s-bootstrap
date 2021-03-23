@@ -1,0 +1,22 @@
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+
+cluster:
+  name: "staging"
+  awsRegion: "us-east-2"
+  clusterAutoscaler:
+    namespace: "kube-system"
+
+route53:
+  hostedZone: "Z08986773ODFTU2BF7F3G"
+
+iam:
+  route53Manager: arn:aws:iam::675004254350:role/eks-route53-manager-new-staging
+  secretsManager: arn:aws:iam::675004254350:role/eks-secrets-manager-new-staging
+
+certManager:
+  issuer: letsencrypt
+
+controlRepo: ssh://git@stash.cudaops.com:7999/skf/skf-bootstrap.git
+targetRevision: HEAD
