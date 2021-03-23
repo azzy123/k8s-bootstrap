@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     
-    path: applications/aws-efs-csi-driver
+    path: aws-efs-csi-driver
     helm:
       parameters:
         - name: cluster.name
